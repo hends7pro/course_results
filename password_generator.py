@@ -37,3 +37,4 @@ def generate_password(length, character_set, amount):
 
 password_length, char_set, quantity = get_pass_specs()
 generate_password(password_length, char_set, quantity)
+input()
