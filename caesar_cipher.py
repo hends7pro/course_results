@@ -1,11 +1,11 @@
-encryption_or_decryption = "дешифрование"   # choose "шифрование" or "дешифрование"
-language = "английский"     # choose "русский" or "английский"
-#k = int(input('Шаг сдвига (со сдвигом вправо)?'))
-
-s = "is"     # enter the input string
-
+# простой скрипт для использования (де)шифрования по алгоритму Цезаря
+encryption_or_decryption = input("шифрование или дешифрование?: ")   # выбор режима работы скрипта "шифрование" или "дешифрование"
+language = input("алфавит? (русский или английский поддерживаются): ")     # выбор алфавита "русский" или "английский"
+k = int(input('Шаг сдвига (со сдвигом вправо)?'))   # запрашиваем сдвиг для работы алгоритма
+s = input("строка для операции: ")    # кладем строку для операции (де)шифрования
 
 def get_msg(code_type, lang, shift):
+    # объявляем переменные
     global encryption_or_decryption
     alphabet_RU = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
     alphabet_ru = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
@@ -13,6 +13,8 @@ def get_msg(code_type, lang, shift):
     alphabet_en = 'abcdefghijklmnopqrstuvwxyz'
     k = shift
     s1 = ''
+
+    # тело функции
     if encryption_or_decryption.lower() == 'шифрование':
         if language.lower() == 'русский':
             for c in s:
@@ -49,6 +51,5 @@ def get_msg(code_type, lang, shift):
                     s1 += c
     return s1
 
-
-for i in range(26):
-    print(get_msg(encryption_or_decryption, language, i))
+# вызов функции и вывод конечного результата
+print(get_msg(encryption_or_decryption, language, k))
